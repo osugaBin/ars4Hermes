@@ -251,7 +251,7 @@ Select 5 citations from different sections of the draft. For each:
 | Has location anchor? | Check for page/quote/section reference in the citation |
 | No suspicious patterns? | Overly convenient citation? Looks LLM-generated? |
 
-### 4b. Flag suspicious citations
+### 4c. Flag suspicious citations
 
 | Pattern | Flag |
 |---------|------|
@@ -425,8 +425,59 @@ Compile a summary of the entire pipeline:
   └── process_summary.md
 ```
 
+### 6d. Generate Researcher Action Items
+
+Scan the final paper for all `[需研究者...]` / `[MATERIAL GAP]` / `[需人工确认]` markers and compile a standalone action-items checklist:
+
+```markdown
+# Researcher Action Items — 待你完成的实证工作
+
+## 数据验证类
+
+| # | 位置 | 标记 | 具体任务 | 预估耗时 |
+|---|------|------|----------|----------|
+| 1 | §3.2 | [需研究者补充数据] | 查教学大纲/CNKI/问卷调研统计学课程评估现状 | 1-2 周 |
+| 2 | §4.1 | [需研究者补充] | 下载核实教育部政策原文号 | 1-2 天 |
+| 3 | §4.2 | [需研究者补充数据] | 调研本校评估工具/CNKI案例收集 | 1-2 周 |
+| 4 | §4.3 | [需研究者补充数据] | 设计问卷收集中国高校评估方式定量数据 | 2-3 周 |
+| 5 | §5.2 | [需研究者分析] | 设计教学实验，收集学生反馈 | 2-4 周 |
+| 6 | §5.3 | [需研究者补充] | 查校政策/CNKI/收集态度数据 | 1-2 周 |
+| 7 | §6.2 | [需研究者实证] | 选试点实施三层框架+写案例研究 | 4-8 周 |
+| 8 | §7 | [需研究者行动] | 将研究空白转化为课题/论文方向 | 持续 |
+
+## 引用核实类
+
+| # | 引用 | 当前状态 | 需你做的事 |
+|---|------|----------|-----------|
+| [3] | GAISE 2016 | 未通过API索引 | 从ASA官网下载核实 |
+| [6] | Chiu 2023 | 已验证✅ | — |
+| [8] | Gibbs 2022 | [需人工确认] | 在CNKI/Google Scholar核实 |
+| [10] | Bearman 2024 | [MATERIAL GAP] | 找到并替换真实引用 |
+| [11] | Bond 2021 | [需人工确认] | 在Google Scholar核实 |
+
+## 框架验证类
+
+- [ ] 选择一所高校统计学课程试点实施三层AI+GAISE框架
+- [ ] 收集实施前后对比数据
+- [ ] 写成案例研究报告
+
+Save this as:
+
+```
+<workdir>/academic-pipeline/
+  └── researcher_action_items.md
+```
+
 Present to user:
-> 🎉 学术全流程完成！
+> 📋 **Researcher Action Items 已生成**
+>
+> 论文中标注了 N 处需要你亲自完成的工作（数据验证、引用核实、框架实证等），
+> 已整理为独立清单：<path>/researcher_action_items.md
+>
+> 你可以按照预估耗时排序，逐步补充完成。完成后通知我，我可以帮你将
+> 补充的数据整合回论文正文。
+>
+> 🎉 **全流程完成！**
 >
 > 最终论文：<path>/final_paper.md
 > 流程总结：<path>/process_summary.md
@@ -457,5 +508,6 @@ Present to user:
 
 ## Version History
 
-- **1.1.0** (2026-06-09): Strengthened Stage 4.5 citation audit. Added reference-existence verification (OpenAlex DOI resolution) to catch fabricated references before they reach the writing pipeline. Explicitly prohibits placeholder author names (Example: 张三, John Doe) and unresolvable DOIs. Stage 3 writing section updated to reference the no-fabrication rule.
-- **1.0.0** (2026-06-09): Initial port from Imbad0202/academic-research-skills academic-pipeline v3.12.0. 6-stage pipeline with mandatory integrity gates at 2.5 and 4.5. Orchestrates deep-research, academic-paper, and academic-paper-reviewer.
+- **1.1.0** (2026-06-09): Strengthened Stage 4.5 with reference-existence verification via OpenAlex API. Added no-fabrication rules. Added network-fallback pitfall for Stage 1. Created openalex_verification_protocol.md ref file.
+- **1.2.0** (2026-06-10): Added Stage 6d — Researcher Action Items generator. Pipeline now produces a standalone `researcher_action_items.md` listing all unverifiable citations, material gaps, and framework validation tasks that require the human researcher's own effort. All `[需研究者...]` markers in the paper are automatically scanned and compiled into a prioritized checklist.
+- **1.0.0** (2026-06-09): Initial port from Imbad0202/academic-research-skills.
