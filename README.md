@@ -94,6 +94,7 @@ ars4Hermes/
 │   │   └── references/            （评分标准、决策矩阵）
 │   └── academic-pipeline/         ← 全流程编排技能
 │       └── SKILL.md               （6 阶段编排定义）
+```
 
 ---
 
