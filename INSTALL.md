@@ -66,9 +66,7 @@ ars4hermes_full/
 │   │   ├── SKILL.md
 │   │   └── references/
 │   └── academic-pipeline/              ← 全流程编排器
-│       └── SKILL.md
-└── example_output/
-    └── (eg1 全流程示例产出)
+│       └── SKILL.md               （6 阶段编排定义）
 ```
 
 ## 触发词速查
@@ -80,23 +78,10 @@ ars4hermes_full/
 | academic-paper-reviewer | `评审论文 [文件路径]`、`快速评估 [文件路径]`、`引导改进 [文件路径]` |
 | academic-pipeline | `启动学术全流程 [选题]`、`从零开始写论文 [选题]` |
 
-## 运行示例
-
-完整的 pipeline 运行示例可查看 `example_output/` 目录：
-
-```
-启动学术全流程 人工智能对统计学本科教学质量保障的影响
-```
-
-产出 9 个文件覆盖 6 个阶段：研究 → 完整性门控 → 写作 → 引用审计 → 评审 → 终稿。
-
 ## 卸载
 
 ```bash
-rm -rf ~/.hermes/skills/research/deep-research
-rm -rf ~/.hermes/skills/research/academic-paper
-rm -rf ~/.hermes/skills/research/academic-paper-reviewer
-rm -rf ~/.hermes/skills/research/academic-pipeline
+rm -rf ~/.hermes/skills/research/deep-research ~/.hermes/skills/research/academic-paper ~/.hermes/skills/research/academic-paper-reviewer ~/.hermes/skills/research/academic-pipeline
 ```
 
 ## 注意

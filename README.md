@@ -94,17 +94,6 @@ ars4Hermes/
 │   │   └── references/            （评分标准、决策矩阵）
 │   └── academic-pipeline/         ← 全流程编排技能
 │       └── SKILL.md               （6 阶段编排定义）
-└── eg1/                           ← 完整 pipeline 运行示例
-    ├── stage1_research.md          （研究阶段：16 个来源）
-    ├── stage25_integrity.md        （完整性门控：ALL CLEAR）
-    ├── stage3_draft.md             （论文初稿：~9300 字）
-    ├── stage45_citation_audit.md   （引用审计：ALL CLEAR）
-    ├── stage5_review.md            （同行评审：3.25/5.0 Major）
-    ├── stage5_re_review.md         （二次评审：3.525/5.0 Minor）
-    ├── stage5_revised.md           （修订版）
-    ├── final_paper.md              （终稿）
-    └── process_summary.md          （流程总结）
-```
 
 ---
 
