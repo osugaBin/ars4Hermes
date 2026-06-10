@@ -12,31 +12,24 @@ ARS4Hermes (Academic Research Skills for Hermes Agent) 是将 Imbad0202/academic
 
 ## 安装方法
 
-### 方法一：解压安装包（推荐）
+### 方法一：从 GitHub 克隆（推荐）
+
+```bash
+git clone https://github.com/osugaBin/ars4Hermes.git
+cd ars4Hermes
+bash install.sh
+```
+
+安装脚本会自动将 4 个技能复制到 `~/.hermes/skills/research/` 下。
+
+### 方法二：解压安装包
 
 拿到 `ars4hermes_package_v1.0.tar.gz` 后：
 
 ```bash
-# 1. 解压
 tar xzf ars4hermes_package_v1.0.tar.gz
-
-# 2. 运行安装脚本
 cd ars4hermes_full
 bash install.sh
-```
-
-安装脚本会自动将技能文件复制到 `~/.hermes/skills/research/` 下。
-
-### 方法二：直接从 Git 仓库安装（如需）
-
-```bash
-# 克隆仓库
-git clone <repository-url>
-cd ars4hermes
-
-# 手动复制技能到 Hermes 技能目录
-mkdir -p ~/.hermes/skills/research
-cp -r skills/research/* ~/.hermes/skills/research/
 ```
 
 ## 验证安装
